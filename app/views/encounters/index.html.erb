@@ -1,0 +1,27 @@
+<h1>Welcome to my Patient Worklist!</h1>
+
+<h2>Total # of Encounters: <%= Encounter.count %> </h2> 
+<h3>Avg Cost per Encounter: $
+	<%= Encounter.sum(:total_cost) / Encounter.count  %> </h3>
+
+<table>
+	<tbody>
+		<tr>
+			<td><b>PAN</b></td>
+			<td><b>Discharge Date</b></td>
+			<td><b>Zip Code</b></td>
+			<td><b>Age</b></td>
+			<td><b>Total Cost</b></td>
+		<% @encounters.each do |encounter| %>
+		<tr>
+			<td><%= encounter.patient_account_number %></td>
+			<td><%= encounter.discharge_date %></td>
+			<td><%= encounter.zip_code %></td>
+			<td><%= encounter.patient_age %></td>
+			<td><%= encounter.total_cost %></td>
+		</tr>
+		<% end %>
+
+	</tbody>
+</table>
+
