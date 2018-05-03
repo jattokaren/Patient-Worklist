@@ -7,7 +7,8 @@
 
 #encounters td, #encounters th {
     border: 1px solid #ddd;
-    padding: 8px;
+    text-align: center;
+    padding: 6px;
 }
 
 #encounters tr:nth-child(even){background-color: #f2f2f2;}
@@ -15,10 +16,10 @@
 #encounters tr:hover {background-color: #ddd;}
 
 #encounters th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #4c80af;
     color: white;
 }
 

@@ -4,5 +4,6 @@ class EncountersController < ApplicationController
     #Reverse Sort
     #@encounters = Encounter.all.sort_by { |e| e[:patient_age]*-1}
     #@encounters = Encounter.all.sort_by { |e| e[:patient_age]}.reverse
+    #@encounters = Encounter.limit(10).all.sort_by { |e| e[:patient_age]}
   end
 end

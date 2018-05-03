@@ -9,11 +9,12 @@
 <table id="encounters">
 	<tbody>
 		<tr>
-			<td><b>PAN</b></td>
-			<td><b>Discharge Date</b></td>
-			<td><b>Zip Code</b></td>
-			<td><b>Age</b></td>
-			<td><b>Total Cost</b></td>
+			<th>PAN</th>
+			<th>Discharge Date</th>
+			<th>Zip Code</th>
+			<th>Age</th>
+			<th>Total Cost</th>
+			<th>Transition Notes</th>
 		<% @encounters.each do |encounter| %>
 		<tr>
 			<td><%= encounter.patient_account_number %></td>
@@ -21,6 +22,7 @@
 			<td><%= encounter.zip_code %></td>
 			<td><%= encounter.patient_age %></td>
 			<td><%= (encounter.total_cost).round(2) %></td>
+			<td><%= link_to 'See Notes', note_path(encounter) %>
 		</tr>
 		<% end %>
 

@@ -3,6 +3,9 @@ class NotesController < ApplicationController
     @notes = Note.all
   end
 
+  def show
+  end
+
   def new
   	@note = Note.new
   end
