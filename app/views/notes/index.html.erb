@@ -1,3 +1,10 @@
+NOTES
+
+
 <% @notes.each do |note| %>
-  <%= note.content %>
+  <br>
+  <%= note.content %> <%= link_to("Note page", encounter_note_path(@encounter_id, note)) %>
+  <br>
 <% end %> 
+
+<%= link_to("Create note", new_encounter_note_path(@encounter_id)) %>

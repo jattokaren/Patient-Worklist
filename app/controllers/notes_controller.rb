@@ -1,20 +1,26 @@
 class NotesController < ApplicationController
+  # include NotesHelper module here
   def index
-    @notes = Note.all
+  	@encounter_id = params[:encounter_id]
+    @notes = Note.where("encounter_id = ?", params[:encounter_id])
   end
 
   def show
+  	@encounter_id = params[:encounter_id]
+  	@note_id = params[:id]
+  	@note = Note.find(params[:id])
   end
 
   def new
+  	@encounter_id = params[:encounter_id]
   	@note = Note.new
   end
 
   def create
-  	p "In the create method!!!"
-  	note = Note.create(note_params)
-  	p note
-  	redirect_to notes_path
+  	note = Note.new(note_params)
+  	note.encounter_id = params[:encounter_id]
+  	note.save
+  	redirect_to encounter_notes_path(params[:encounter_id])
   end
 
   private

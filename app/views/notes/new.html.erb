@@ -1,1 +1,15 @@
 <h1>Add a Patient Note</h1>
+
+<%= form_for @note, url: encounter_notes_path(@encounter_id) do |f| %>
+	<div>
+		<%= f.label :content %>
+		<%= f.text_area :content, size: '60x6' %>
+	</div>
+	<div>
+		<%= f.label :staff_initials %>
+		<%= f.text_field :staff_initials %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>

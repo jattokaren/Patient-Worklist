@@ -22,7 +22,7 @@
 			<td><%= encounter.zip_code %></td>
 			<td><%= encounter.patient_age %></td>
 			<td><%= (encounter.total_cost).round(2) %></td>
-			<td><%= link_to 'See Notes', note_path(encounter) %>
+			<td><%= link_to 'See Notes', encounter_notes_path(encounter) %>
 		</tr>
 		<% end %>
 
