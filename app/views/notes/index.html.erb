@@ -1,4 +1,4 @@
-NOTES
+Show Notes Page
 
 
 <% @notes.each do |note| %>
@@ -6,5 +6,38 @@ NOTES
   <%= note.content %> <%= link_to("Note page", encounter_note_path(@encounter_id, note)) %>
   <br>
 <% end %> 
+<br>
+
+<table id="encounters">
+	<tbody>
+		<tr>
+			<th>Internal ID</th>
+			<th>PAN</th>
+			<th>Note Content</th>
+			<th>Staff Initials</th>
+			<th>Create Date</th>
+			<th>Update Date</th>
+			<th>Edit Note</th>
+			<th>Delete Note</th>
+		 <% @notes.each do |note| %>
+		 
+		<tr>
+			<td><%= note.encounter_id %></td>
+			<td><%= note.patient_account_number %></td>
+			<td><%= note.content %></td>
+			<td><%= note.staff_initials %></td>
+			<td><%= note.created_at %></td>
+			<td><%= note.updated_at %></td>
+			<td>Edit Note</td>
+			<td>Delete Note</td>
+		</tr>
+		<% end %>
+
+	</tbody>
+</table>
+
+<br>
+<b>Disclaimer:</b> Fake Data
+<br>
 
 <%= link_to("Create note", new_encounter_note_path(@encounter_id)) %>
