@@ -11,7 +11,8 @@ Show Notes Page
 <table id="encounters">
 	<tbody>
 		<tr>
-			<th>Internal ID</th>
+			<th>Note ID</th>
+			<th>Internal Patient ID</th>
 			<th>PAN</th>
 			<th>Note Content</th>
 			<th>Staff Initials</th>
@@ -22,6 +23,7 @@ Show Notes Page
 		 <% @notes.each do |note| %>
 		 
 		<tr>
+			<td><%= note.id %></td>
 			<td><%= note.encounter_id %></td>
 			<td><%= note.patient_account_number %></td>
 			<td><%= note.content %></td>
@@ -41,3 +43,14 @@ Show Notes Page
 <br>
 
 <%= link_to("Create note", new_encounter_note_path(@encounter_id)) %>
+<br>
+<br>
+To Do
+<br>
+Pass PAN to Note Table
+<br>
+Figure out how to edit notes
+<br>
+Figure out how to delete notes
+<br>
+Clean up UI / UX
