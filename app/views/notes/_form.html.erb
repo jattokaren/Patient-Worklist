@@ -1,0 +1,16 @@
+<%= form_for @note, url: encounter_notes_path(@encounter_id) do |f| %>
+  <div>
+    <b><%= f.label :content %></b>
+    <br>
+    <%= f.text_area :content, size: '50x5' %>
+  </div>
+  <div>
+    <b><%= f.label :staff_initials %></b>
+    <br>
+    <%= f.text_field :staff_initials %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

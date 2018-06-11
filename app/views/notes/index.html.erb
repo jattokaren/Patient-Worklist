@@ -23,7 +23,7 @@
 			<td><%= note.staff_initials %></td>
 			<td><%= note.created_at %></td>
 			<td><%= note.updated_at %></td>
-			<td>Edit Note</td>
+			<td><%= link_to "Edit Note", edit_encounter_note_path(@encounter_id, note)%></td>
 			<td>Delete Note</td>
 		</tr>
 		<% end %>
@@ -36,6 +36,8 @@
 <br>
 
 <%= link_to("Create note", new_encounter_note_path(@encounter_id)) %>
+<br>
+<%= link_to 'Go Back to Patient Encounter List', encounters_path, method: :get %>
 <br>
 <br>
 To Do
@@ -51,7 +53,8 @@ Clean up UI / UX
 <h4>Cycle thru notes for specific encounter</h4>
 <% @notes.each do |note| %>
   <br>
-  <%= note.content %> <%= link_to("Note page", encounter_note_path(@encounter_id, note)) %>
+  <%= note.content %> 
+  <%= link_to("Show Note page", encounter_note_path(@encounter_id, note)) %>
   <br>
 <% end %> 
 <br>
