@@ -1,12 +1,5 @@
-Show Notes Page
-
-
-<% @notes.each do |note| %>
-  <br>
-  <%= note.content %> <%= link_to("Note page", encounter_note_path(@encounter_id, note)) %>
-  <br>
-<% end %> 
-<br>
+<h1>Encounter Notes</h1>
+<h3>Show Notes Page</h3>
 
 <table id="encounters">
 	<tbody>
@@ -54,3 +47,11 @@ Figure out how to edit notes
 Figure out how to delete notes
 <br>
 Clean up UI / UX
+
+<h4>Cycle thru notes for specific encounter</h4>
+<% @notes.each do |note| %>
+  <br>
+  <%= note.content %> <%= link_to("Note page", encounter_note_path(@encounter_id, note)) %>
+  <br>
+<% end %> 
+<br>

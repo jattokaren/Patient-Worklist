@@ -1,3 +1,4 @@
+<body>
 <h1>Patient Worklist</h1>
 
 <h2>Total # of Encounters: <%= Encounter.count %> </h2> 
@@ -22,7 +23,7 @@
 			<td><%= encounter.zip_code %></td>
 			<td><%= encounter.patient_age %></td>
 			<td><%= (encounter.total_cost).round(2) %></td>
-			<td><%= link_to 'See Notes', encounter_notes_path(encounter) %>
+			<td bgcolor="#F42A4D"><%= link_to 'See Notes', encounter_notes_path(encounter) %></td>
 		</tr>
 		<% end %>
 
@@ -31,3 +32,6 @@
 
 <br>
 <b>Disclaimer:</b> Fake Data
+<br>
+<%= image_tag "CH_REV_red_logo-01-small.jpg" %>
+</body>
