@@ -1,6 +1,6 @@
 <h1>Edit Note for Encounter:</h1>
 
-<%= form_for @note, url: encounter_notes_path(@note_id) do |f| %>
+<%= form_for @note, url: encounter_note_path(@encounter_id, @note) do |f| %>
   <div>
     <b><%= f.label :content %></b>
     <br>
@@ -18,4 +18,4 @@
 <% end %>
 
 <br>
-<%= link_to "Back to Encounter Notes", encounter_notes_path(@note) %>
+<%= link_to "Back to Encounter Notes", encounter_notes_path %>

@@ -37,12 +37,12 @@ class NotesController < ApplicationController
   @note = Note.find(params[:id]) 
   end 
 
-  def update   #NOT WORKING WEll 
+  def update   #NOT WORKING well 
     @encounter_id = params[:encounter_id] 
   #	@note_id = params[:id] 
     @note = Note.find(params[:id]) 
     @note.update_attributes(note_params) 
-  redirect_to encounter_notes_path 
+  	redirect_to encounter_notes_path 
   end 
 
   def destory  	#NOT WORKING well?
@@ -51,7 +51,7 @@ class NotesController < ApplicationController
   	#@note_id = params[:id]
   	@note = Note.find(params[:id])
 	@note.destroy
-	redirect_to encounter_notes_path(params[:encounter_id])
+	redirect_to encounter_notes_path 
   end
 
   private
