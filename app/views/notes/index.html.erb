@@ -24,7 +24,9 @@
 			<td><%= note.created_at %></td>
 			<td><%= note.updated_at %></td>
 			<td><%= link_to "Edit Note", edit_encounter_note_path(@encounter_id, note)%></td>
-			<td>Delete Note</td>
+			<td><%= link_to 'Delete Note', encounter_note_path(@encounter_id, note), method: :delete %>
+
+			</td>
 		</tr>
 		<% end %>
 
