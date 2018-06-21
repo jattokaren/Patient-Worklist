@@ -31,13 +31,13 @@ class NotesController < ApplicationController
   	redirect_to encounter_notes_path(params[:encounter_id])
   end
 
-    def edit  #NOT WORKING maybe 
+    def edit  #WORKING!!!
   @encounter_id = params[:encounter_id] 
   @note_id = params[:id] 
   @note = Note.find(params[:id]) 
   end 
 
-  def update   #NOT WORKING well 
+  def update   #WORKING!!
     @encounter_id = params[:encounter_id] 
   #	@note_id = params[:id] 
     @note = Note.find(params[:id]) 
@@ -45,7 +45,7 @@ class NotesController < ApplicationController
   	redirect_to encounter_notes_path 
   end 
 
-  def destory  	#NOT WORKING well?
+  def destroy  	#WORKING!!
   	#<td><%= link_to 'Delete Note', encounter_note_path, method: :delete %></td>
   	@encounter_id = params[:encounter_id]
   	#@note_id = params[:id]
