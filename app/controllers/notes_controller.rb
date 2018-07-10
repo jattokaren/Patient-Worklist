@@ -31,10 +31,10 @@ class NotesController < ApplicationController
   	redirect_to encounter_notes_path(params[:encounter_id])
   end
 
-    def edit  #WORKING!!!
-  @encounter_id = params[:encounter_id] 
-  @note_id = params[:id] 
-  @note = Note.find(params[:id]) 
+  def edit  #WORKING!!!
+    @encounter_id = params[:encounter_id] 
+    @note_id = params[:id] 
+    @note = Note.find(params[:id]) 
   end 
 
   def update   #WORKING!!
@@ -50,8 +50,8 @@ class NotesController < ApplicationController
   	@encounter_id = params[:encounter_id]
   	#@note_id = params[:id]
   	@note = Note.find(params[:id])
-	@note.destroy
-	redirect_to encounter_notes_path 
+    @note.destroy
+    redirect_to encounter_notes_path 
   end
 
   private

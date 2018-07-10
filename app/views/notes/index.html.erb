@@ -1,3 +1,13 @@
+    <header class='clearfix'>
+        <ul>
+          <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
+          <li><a href="https://www.changehealthcare.com/">CHC</a></li>
+          <li><%= link_to "Home", root_path %></li>
+  		  <li><a href="">About</a></li>
+          <li><%= link_to "Create Note", new_encounter_note_path(@encounter_id) %></li>
+        </ul>
+    </header>
+
 <h1>Encounter Notes</h1>
 <h3>Show Notes Page</h3>
 
@@ -13,8 +23,7 @@
 			<th>Update Date</th>
 			<th>Edit Note</th>
 			<th>Delete Note</th>
-		 <% @notes.each do |note| %>
-		 
+		 <% @notes.each do |note| %>		 
 		<tr>
 			<td><%= note.id %></td>
 			<td><%= note.encounter_id %></td>
@@ -24,9 +33,7 @@
 			<td><%= note.created_at %></td>
 			<td><%= note.updated_at %></td>
 			<td><%= link_to "Edit Note", edit_encounter_note_path(@encounter_id, note)%></td>
-			<td><%= link_to 'Delete Note', encounter_note_path(@encounter_id, note), method: :delete %>
-
-			</td>
+			<td><%= link_to 'Delete Note', encounter_note_path(@encounter_id, note), method: :delete %></td>
 		</tr>
 		<% end %>
 
@@ -42,21 +49,10 @@
 <%= link_to 'Go Back to Patient Encounter List', encounters_path, method: :get %>
 <br>
 <br>
-To Do
-<br>
-Pass PAN to Note Table
-<br>
-Figure out how to edit notes
-<br>
-Figure out how to delete notes
-<br>
-Clean up UI / UX
-
-<h4>Cycle thru notes for specific encounter</h4>
-<% @notes.each do |note| %>
-  <br>
-  <%= note.content %> 
-  <%= link_to("Show Note page", encounter_note_path(@encounter_id, note)) %>
-  <br>
-<% end %> 
+<b>To Do</b>
+	<li>Add Nav bar</li>
+	<li>Add BetterDoctor API</li>
+	<li>Add GoodRx API</li>
+	<li>Pass PAN to Note Table</li>
+	<li>Clean up UI / UX</li>
 <br>

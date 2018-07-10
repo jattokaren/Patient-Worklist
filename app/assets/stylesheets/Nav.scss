@@ -1,0 +1,43 @@
+header {
+  background: white;
+  padding: 22px;
+  font-weight: bold;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #FFFFFF;
+      position: fixed;
+      top: 0;
+  }
+
+  li {
+      float: left;
+      border-right:2px solid #F42A4D;
+  }
+
+  li:last-child {
+      border-right: none;
+  }
+
+  li a {
+      display: block;
+      color: #0f0f59;
+      text-align: center;
+      padding: 10px 20px;
+      text-decoration: none;
+  }
+
+  li a:hover {
+      background-color: white;
+      color: #f42a4d;
+  }
+
+  .active {
+      background-color: #f42a4d;
+      color: white;
+  }
+}
