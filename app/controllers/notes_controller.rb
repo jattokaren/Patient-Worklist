@@ -1,9 +1,18 @@
+require 'betterdoctor_helper'
+require 'json'
+
 class NotesController < ApplicationController
   # include NotesHelper module here
+  include BetterdoctorHelper
   def index
   	@encounter_id = params[:encounter_id]
+    @encounter = Encounter.find(@encounter_id)
+    #@doctors = JSON.parse(BetterdoctorHelper.get_doctors())
     @notes = Note.where("encounter_id = ?", params[:encounter_id])
   end
+
+def about
+end
 
   def show
   	#link_to("Show Note page", encounter_note_path(@encounter_id, note))
@@ -18,7 +27,7 @@ class NotesController < ApplicationController
   	@note = Note.new
   end
 
-  def create
+  def create  #required params NOT WORKING!!?
   	p "In the create method!!!!"
   	note = Note.new(note_params)
   	p note

@@ -12,6 +12,7 @@ header {
       background-color: #FFFFFF;
       position: fixed;
       top: 0;
+      width: 100%;
   }
 
   li {
@@ -37,7 +38,7 @@ header {
   }
 
   .active {
-      background-color: #f42a4d;
-      color: white;
+      background-color: white;
+      color: #f42a4d;
   }
 }

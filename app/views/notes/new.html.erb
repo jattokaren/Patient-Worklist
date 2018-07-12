@@ -1,3 +1,13 @@
+    <header class='clearfix'>
+        <ul>
+          <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
+          <li><a href="https://www.changehealthcare.com/">CHC</a></li>
+          <li><%= link_to "Worklist", root_path %></li>
+          <li><%= link_to "About", static_pages_about_path %></li>
+          <li><%= link_to "Back to Notes", encounter_notes_path(params[:encounter_id])%></li>
+        </ul>
+    </header>
+
 <h1>Add a Note for Encounter:</h1>
 
 <%= form_for @note, url: encounter_notes_path(@encounter_id) do |f| %>
@@ -18,4 +28,4 @@
 <% end %>
 
 <br>
-<%= link_to "Back to Encounter Notes", encounter_notes_path %>
+<%= link_to "Back to Worklist", encounter_notes_path %>

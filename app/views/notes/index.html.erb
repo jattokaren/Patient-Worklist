@@ -2,12 +2,13 @@
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
           <li><a href="https://www.changehealthcare.com/">CHC</a></li>
-          <li><%= link_to "Home", root_path %></li>
-  		  <li><a href="">About</a></li>
+          <li><%= link_to "Worklist", root_path %></li>
+  		  <li><%= link_to "About", static_pages_about_path %></li>
           <li><%= link_to "Create Note", new_encounter_note_path(@encounter_id) %></li>
         </ul>
     </header>
 
+<div class='content'>
 <h1>Encounter Notes</h1>
 <h3>Show Notes Page</h3>
 
@@ -56,3 +57,5 @@
 	<li>Pass PAN to Note Table</li>
 	<li>Clean up UI / UX</li>
 <br>
+@doctors
+</div>

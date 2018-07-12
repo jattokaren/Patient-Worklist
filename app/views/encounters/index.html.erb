@@ -2,12 +2,13 @@
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
           <li><a href="https://www.changehealthcare.com/">CHC</a></li>
-          <li><%= link_to "Home", root_path %></li>
-          <li><a href="">About</a></li>
+          <li><%= link_to "Worklist", root_path %></li>
+          <li><%= link_to "About", static_pages_about_path %></li>
         </ul>
     </header>
 
 <body>
+<div class='content'>
 <h1>Patient Worklist</h1>
 
 <h2>Total # of Encounters: <%= Encounter.count %> </h2> 
@@ -43,4 +44,5 @@
 <b>Disclaimer:</b> Fake Data
 <br>
 <%= link_to image_tag("CH_REV_red_logo-01-small.jpg"), "https://www.changehealthcare.com/" %>
+</div>
 </body>
