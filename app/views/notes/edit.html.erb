@@ -7,7 +7,8 @@
           <li><%= link_to "Back to Notes", encounter_notes_path(params[:encounter_id])%></li>
         </ul>
     </header>
-    
+
+<div class='content'>    
 <h1>Edit Note for Encounter:</h1>
 
 <%= form_for @note, url: encounter_note_path(@encounter_id, @note) do |f| %>
@@ -29,3 +30,4 @@
 
 <br>
 <%= link_to "Back to Encounter Notes", encounter_notes_path %>
+</div>

@@ -8,6 +8,7 @@
         </ul>
     </header>
 
+<div class='content'>
 <h1>Add a Note for Encounter:</h1>
 
 <%= form_for @note, url: encounter_notes_path(@encounter_id) do |f| %>
@@ -29,3 +30,4 @@
 
 <br>
 <%= link_to "Back to Worklist", encounter_notes_path %>
+</div>
