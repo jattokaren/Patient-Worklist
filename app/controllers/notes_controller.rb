@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   def index
   	@encounter_id = params[:encounter_id]
     @encounter = Encounter.find(@encounter_id)
-    #@doctors = JSON.parse(BetterdoctorHelper.get_doctors())
+    @doctors = JSON.parse(BetterdoctorHelper.get_doctors)
     @notes = Note.where("encounter_id = ?", params[:encounter_id])
   end
 

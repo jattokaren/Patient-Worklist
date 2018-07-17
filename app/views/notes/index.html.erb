@@ -1,9 +1,9 @@
     <header class='clearfix'>
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
-          <li><a href="https://www.changehealthcare.com/">CHC</a></li>
+          <li><%= link_to "About", static_pages_about_path %></li>
           <li><%= link_to "Worklist", root_path %></li>
-  		  <li><%= link_to "About", static_pages_about_path %></li>
+  		  
           <li><%= link_to "Create Note", new_encounter_note_path(@encounter_id) %></li>
         </ul>
     </header>
@@ -58,5 +58,25 @@
 	<li>Clean up UI / UX</li>
 	<li>User Security OAuth</li>
 <br>
-@doctors
+<h3>BetterDoctor API</h3>
+<b># of Doctors Found: </b>
+<%= @doctors['meta']['total'] %> 
+<br>
+<br>
+<h4>Top 10 Local Doctors</h4>
+<% @doctors['data'].each do |data| %>
+	<%= data['npi'] %>  
+	-
+	<%= data['profile']['last_name']%>, <%= data['profile']['first_name']%> <%= data['profile']['title']%> 
+	    (<%= data['profile']['slug'] %>)
+	<br>
+<% end %>
+<h4>---Example---</h4>
+<%= @doctors['data'][0]['profile']['last_name'] %>
+<br>
+<h4>Practices</h4>
+<% @doctors['data'][0]['practices'].each do |practice| %> 
+  <%= practice['name'] %> 
+  <br>
+<% end %> 
 </div>
