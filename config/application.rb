@@ -15,6 +15,7 @@ module Patientworklist
   end
 end
 
+#NOT WORKING Code
 # config_files = ['secrets.yml']
 
 # config_files.each do |file_name|

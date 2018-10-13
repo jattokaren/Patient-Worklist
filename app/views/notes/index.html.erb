@@ -14,23 +14,23 @@
 
 <table id="encounters">
 	<tbody>
-		<tr>
-			<th>Note ID</th>
-			<th>Internal Patient ID</th>
-			<th>PAN</th>
+		<tr>			
 			<th>Note Content</th>
 			<th>Staff Initials</th>
+			
+			<th>Note ID</th>
+			<th>Internal Patient ID</th>
 			<th>Create Date</th>
 			<th>Update Date</th>
 			<th>Edit Note</th>
 			<th>Delete Note</th>
 		 <% @notes.each do |note| %>		 
-		<tr>
-			<td><%= note.id %></td>
-			<td><%= note.encounter_id %></td>
-			<td><%= note.patient_account_number %></td>
+		<tr>			
 			<td><%= note.content %></td>
 			<td><%= note.staff_initials %></td>
+			
+			<td><%= note.id %></td>
+			<td><%= note.encounter_id %></td>
 			<td><%= note.created_at %></td>
 			<td><%= note.updated_at %></td>
 			<td><%= link_to "Edit Note", edit_encounter_note_path(@encounter_id, note)%></td>
@@ -53,12 +53,24 @@
 
 <br>
 <h3>BetterDoctor API</h3>
+URL Parameters
+<UL>
+	<LI><b>location</b> = az-phoenix
+	<LI><b>sort</b> = best-match-desc
+	<LI><b>skip</b> = 0
+	<LI><b>limit</b> = 5
+	<LI><b>user_key</b> = DCA234234352
+</UL>
+
+URL Results
+<br>
 <b># of Doctors Found: </b>
 <%= @doctors['meta']['total'] %> 
 <br>
 <br>
-<h4>Top 10 Local Doctors</h4>
+<h4>Top 5 Local Doctors</h4>
 <table>
+    <tbody>
         <thead>
             <th>NPI</th>
             <th>Name</th>
@@ -66,20 +78,20 @@
             <th>Slug</th>
             <th>Picture</th>
         </thead>
-        <tbody>
-<% @doctors['data'].each do |data| %>
-	<tr>
-		<td><%= data['npi'] %></td>
-	 	<td><%= data['profile']['last_name']%>, <%= data['profile']['first_name']%></td>
-	 	<td><%= data['profile']['title']%></td> 
-	    <td><%= data['profile']['slug'] %></td>
-	    <td><img src=<%= data['profile']['image_url']%>></img></td>
-	</tr>
-<% end %>
+	<% @doctors['data'].each do |data| %>
+		<tr>
+			<td><%= data['npi'] %></td>
+	 		<td><%= data['profile']['last_name']%>, 
+	 			<%= data['profile']['first_name']%></td>
+	 		<td><%= data['profile']['title']%></td> 
+	    	<td><%= data['profile']['slug'] %></td>
+	    	<td><img src=<%= data['profile']['image_url']%>></img></td>
+		</tr>
+	<% end %>
 		</tbody>
 </table>
 <h4>---Example---</h4>
-<b>Ruby Code:</b> @doctors['data'][0]['profile']['last_name'] = 
+<b>Ruby Code to get JSON value:</b> @doctors['data'][0]['profile']['last_name'] = 
 <%= @doctors['data'][0]['profile']['last_name'] %>
 <br>
 <h4>Practices</h4>
