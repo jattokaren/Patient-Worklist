@@ -50,13 +50,7 @@
 <%= link_to 'Go Back to Patient Encounter List', encounters_path, method: :get %>
 <br>
 <br>
-<b>To Do</b>
-	<li>Add Nav bar</li>
-	<li>Add BetterDoctor API</li>
-	<li>Add GoodRx API</li>
-	<li>Pass PAN to Note Table</li>
-	<li>Clean up UI / UX</li>
-	<li>User Security OAuth</li>
+
 <br>
 <h3>BetterDoctor API</h3>
 <b># of Doctors Found: </b>
@@ -64,14 +58,28 @@
 <br>
 <br>
 <h4>Top 10 Local Doctors</h4>
+<table>
+        <thead>
+            <th>NPI</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Picture</th>
+        </thead>
+        <tbody>
 <% @doctors['data'].each do |data| %>
-	<%= data['npi'] %>  
-	-
-	<%= data['profile']['last_name']%>, <%= data['profile']['first_name']%> <%= data['profile']['title']%> 
-	    (<%= data['profile']['slug'] %>)
-	<br>
+	<tr>
+		<td><%= data['npi'] %></td>
+	 	<td><%= data['profile']['last_name']%>, <%= data['profile']['first_name']%></td>
+	 	<td><%= data['profile']['title']%></td> 
+	    <td><%= data['profile']['slug'] %></td>
+	    <td><img src=<%= data['profile']['image_url']%>></img></td>
+	</tr>
 <% end %>
+		</tbody>
+</table>
 <h4>---Example---</h4>
+<b>Ruby Code:</b> @doctors['data'][0]['profile']['last_name'] = 
 <%= @doctors['data'][0]['profile']['last_name'] %>
 <br>
 <h4>Practices</h4>
