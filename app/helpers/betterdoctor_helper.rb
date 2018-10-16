@@ -2,8 +2,8 @@ require 'net/http'
 
 module BetterdoctorHelper
  def self.get_doctors
-    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=az-phoenix&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca9378486')   
-    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=az-phoenix&sort=best-match-desc&skip=0&limit=10&user_key=' + ENV['BD_API'])   
+    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=az-phoenix&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca98486')   
+    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=az-phoenix&sort=best-match-desc&skip=0&limit=5&user_key=' + ENV['BD_API'])   
 
     req = Net::HTTP::Get.new(url.to_s)
     req['Accept'] = 'application/json'

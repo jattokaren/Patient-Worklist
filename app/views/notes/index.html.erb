@@ -53,7 +53,10 @@
 
 <br>
 <h3>BetterDoctor API</h3>
-URL Parameters
+<a href="https://developer.betterdoctor.com/documentation15">BetterDoctor Documentation</a>
+<br>
+
+Request URL Parameters for Doctor Search API Call
 <UL>
 	<LI><b>location</b> = az-phoenix
 	<LI><b>sort</b> = best-match-desc
@@ -62,7 +65,8 @@ URL Parameters
 	<LI><b>user_key</b> = DCA234234352
 </UL>
 
-URL Results
+Request URL -> Response Body (JSON Parsed)
+<br>
 <br>
 <b># of Doctors Found: </b>
 <%= @doctors['meta']['total'] %> 
@@ -75,7 +79,6 @@ URL Results
             <th>NPI</th>
             <th>Name</th>
             <th>Title</th>
-            <th>Slug</th>
             <th>Picture</th>
         </thead>
 	<% @doctors['data'].each do |data| %>
@@ -84,15 +87,19 @@ URL Results
 	 		<td><%= data['profile']['last_name']%>, 
 	 			<%= data['profile']['first_name']%></td>
 	 		<td><%= data['profile']['title']%></td> 
-	    	<td><%= data['profile']['slug'] %></td>
 	    	<td><img src=<%= data['profile']['image_url']%>></img></td>
 		</tr>
 	<% end %>
 		</tbody>
 </table>
 <h4>---Example---</h4>
-<b>Ruby Code to get JSON value:</b> @doctors['data'][0]['profile']['last_name'] = 
+<b>Ruby Code to get JSON value(s):</b> 
+<br>
+@doctors['data'][0]['profile']['last_name'] = 
 <%= @doctors['data'][0]['profile']['last_name'] %>
+<br>
+@doctors['data'][1]['profile']['last_name'] = 
+<%= @doctors['data'][1]['profile']['last_name'] %>
 <br>
 <h4>Practices</h4>
 <% @doctors['data'][0]['practices'].each do |practice| %> 
