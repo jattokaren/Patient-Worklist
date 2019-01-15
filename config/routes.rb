@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact' #WORKS
 
   #get 'providerdetail/:npi', to: 'providerdetail#npi'  
+  get 'providerdetails/:npi', to: 'static_pages#npi' #routes
+  	#@npi = params[:npi] #controller
 
   #Nested Resource
   resources :encounters, only: [:index, :show] do 

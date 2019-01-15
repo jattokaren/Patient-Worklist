@@ -1,0 +1,57 @@
+<h1>BetterDoctor NPI Search API Results</h1>
+<a href="https://developer.betterdoctor.com/documentation15">BetterDoctor Documentation</a>
+<br>
+https://developer.betterdoctor.com/documentation15
+<br>
+GET /doctors/npi/{npi} Retrieve a specific doctor description using NPI
+<p>NPI = <%= @npi %></p>
+<UL>
+<LI>Provider Type = <%= @providerdetails['data']['specialties'][0]['actor']%>
+<LI>Practice Location
+	<UL>
+		<LI>Latitude: <%= @providerdetails['data']['practices'][0]['lat'].round(4)%>
+		<LI>Longitude: <%= @providerdetails['data']['practices'][0]['lon'].round(4)%>
+	</UL>
+</UL>
+
+<h2>JSON Parsed Results</h2>
+<h3>Summary Claim Results for Provider</h3>
+<table>
+    <tbody>
+        <thead>
+            <th>HCPCS</th>
+            <th>HCPCS Description</th>
+            <th>Service Count</th>
+            <th>Unique Patient Count</th>
+            <th>Avg Charge Amount</th>
+            <th>Avg Allowed Amount</th>
+            <th>Avg Payment Amount</th>
+        </thead>
+	<% @providerdetails['data']['claims'].each do |data| %>
+		<tr>
+			<td><%= data['hcpcs'] %></td>
+	 		<td><%= data['hcpcs_description']%></td> 
+	 		<td><%= data['service_cnt']%></td>
+	 		<td><%= data['bene_uniq_cnt']%></td> 
+	    	<td><%= data['avg_charge_amt'].round(2)%></td>
+	    	<td><%= data['avg_allowed_amt'].round(2)%></td>
+	    	<td><%= data['avg_payment_amt'].round(2)%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<h2>Claim Field Definitions</h2>
+Claim {
+hcpcs (string, optional),
+hcpcs_description (string, optional): The description of the operation type. ,
+service_cnt (integer, optional): Number of operations performed. ,
+bene_uniq_cnt (integer, optional): Number of unique patients treated. ,
+avg_allowed_amt (number, optional): The contracted amount allowed. ,
+avg_charge_amt (number, optional): The amount billed. ,
+avg_payment_amt (number, optional): The amount paid.
+}
+<br>
+
+<h2>JSON Results</h2>
+<%= @providerdetails %>

@@ -99,15 +99,26 @@ Request URL -> Response Body (JSON Parsed)
 <h4>---Example---</h4>
 <b>Ruby Code to get JSON value(s):</b> 
 <br>
-@doctors['data'][0]['profile']['last_name'] = 
-<%= @doctors['data'][0]['profile']['last_name'] %>
 <br>
+<b>For Doctors</b>
+<UL>
+<LI>@doctors['data'][0]['profile']['last_name'] = 
+<%= @doctors['data'][0]['profile']['last_name'] %>
+<LI>
 @doctors['data'][1]['profile']['last_name'] = 
 <%= @doctors['data'][1]['profile']['last_name'] %>
+</UL>
+
+<b>For Practices</b>
 <br>
-<h4>Practices</h4>
+List all practices for 1st Provider: 
+<br>
+@doctors['data'][0]['practices'].each do |practice| 
+<br> 
+<UL>
 <% @doctors['data'][0]['practices'].each do |practice| %> 
-  <%= practice['name'] %> 
-  <br>
+  <LI>
+  practice['name'] = <%= practice['name'] %> 
 <% end %> 
+</UL>
 </div>
