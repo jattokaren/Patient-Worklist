@@ -1,7 +1,7 @@
     <header class='clearfix'>
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
-          <li><%= link_to "About", static_pages_about_path %></li>
+          <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Worklist", root_path %></li>
           
         </ul>
@@ -24,6 +24,7 @@
 			<th>Discharge Date</th>
 			<th>Zip Code</th>
 			<th>Latitude</th>
+			<th>Longitude</th>
 			<th>Age</th>
 			<th>Total Cost</th>
 			<th>Transition Notes</th>
@@ -33,6 +34,7 @@
 			<td><%= encounter.discharge_date %></td>
 			<td><%= encounter.zip_code %></td>
 			<td><%= encounter.latitude %></td>
+			<td><%= encounter.longitude %></td>
 			<td><%= encounter.patient_age %></td>
 			<td><%= (encounter.total_cost).round(2) %></td>
 			<td bgcolor="#F42A4D"><%= link_to 'See Notes', encounter_notes_path(encounter) %></td>

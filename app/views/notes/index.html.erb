@@ -1,7 +1,7 @@
     <header class='clearfix'>
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
-          <li><%= link_to "About", static_pages_about_path %></li>
+          <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Worklist", root_path %></li>
   		  
           <li><%= link_to "Create Note", new_encounter_note_path(@encounter_id) %></li>
@@ -11,6 +11,9 @@
 <div class='content'>
 <h1>Encounter Notes for <%= @encounter.patient_account_number %></h1>
 <h3>Show Notes Page</h3>
+<%= @pan %>
+<%= @encounter.latitude %>
+<%= @encounter.longitude %>
 
 <table id="encounters">
 	<tbody>
@@ -59,6 +62,8 @@
 Request URL Parameters for Doctor Search API Call
 <UL>
 	<LI><b>location</b> = az-phoenix
+	<LI><b>latitude</b> = <%= @encounter.latitude %>
+	<LI><b>longitude</b> = <%= @encounter.longitude %>
 	<LI><b>sort</b> = best-match-desc
 	<LI><b>skip</b> = 0
 	<LI><b>limit</b> = 5
