@@ -11,9 +11,6 @@
 <div class='content'>
 <h1>Encounter Notes for <%= @encounter.patient_account_number %></h1>
 <h3>Show Notes Page</h3>
-<%= @pan %>
-<%= @encounter.latitude %>
-<%= @encounter.longitude %>
 
 <table id="encounters">
 	<tbody>
@@ -61,9 +58,11 @@
 
 Request URL Parameters for Doctor Search API Call
 <UL>
-	<LI><b>location</b> = az-phoenix
-	<LI><b>latitude</b> = <%= @encounter.latitude %>
-	<LI><b>longitude</b> = <%= @encounter.longitude %>
+	<LI><b>location</b> 
+		<UL>
+			<LI>Location slug = st-city
+			<LI>Latitude, Longitude, Radius(miles) = <%= @encounter.latitude %>, <%= @encounter.longitude %>, 10
+		</UL>
 	<LI><b>sort</b> = best-match-desc
 	<LI><b>skip</b> = 0
 	<LI><b>limit</b> = 5
