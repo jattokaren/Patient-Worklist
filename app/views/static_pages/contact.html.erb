@@ -1,2 +1,88 @@
-<b>My Contact Info</b>
+    <header class='clearfix'>
+        <ul>
+          <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Worklist", worklist_path %></li>
+          
+        </ul>
+    </header>
+
+<div class='content'>
+
+<h1>My Contact Info</h1>
 <p><%= @email %></p>
+
+
+<h1>Lessons Learned</h1>
+<UL>
+<LI>How to retrieve database values in Ruby</LI>
+<UL>
+	<LI>encounter.latitude</LI>
+</UL>
+
+<LI>How to parse & iterate JSON in Ruby</LI>
+<UL>
+	<LI>@doctors['data'][0]['profile']['last_name']</LI>
+</UL>
+<LI>How to pass values to from the Controller to the View</LI>
+<LI>How to use nil? <%=nil.nil? %></LI>
+
+</UL>
+
+
+<h3>Learning Objectives</h3>
+<ul>
+	<li>Practice building a Web Application</li>
+	<li>Learn about distributed version control</li>
+	<li>Learn how to deploy code</li> 
+	<li>Figure out hosting cost</li>
+    <ul>
+      <li>Heroku Free Hobby Dev</li>
+      <li>550 free dyno hours per month (23 days)</li>
+    </ul>
+	<li>Learn how to leverage APIs</li>
+	<li>Figure out API cost</li>
+    <ul>
+      <li>Tiers based on # of API calls</li>
+      <li>Pay more for Premium features / content</li>
+    </ul>
+</ul>
+
+<h3>Future Enhancements</h3>
+<ul>
+  <li>Update App Workflow</li>
+  <li>Update Data Model</li>
+  <li>Update Seed File</li>
+  <li>Update UI / UX</li>
+  	<ul>
+  		<li>Add Navigation Bar</li>
+  		<li>Add Carsousel</li>
+  		<li>Add JavaScript Visualizations</li> 
+  	</ul>
+  <li>Add Machine Learning</li>
+  	<ul>
+  		<li>Calculate Risk Scores</li>
+  		<li>Profile Providers & Patients</li>
+  		<li>Estimate Cost Savings</li>
+  	</ul>
+  <li>Add APIs</li>
+  	<ul>
+  		<li>Learn how to leverage & use secrets.yml</li>
+  		<li>BetterDoctor - Doctor Search by location</li>
+  		<li>GoodRx - Fair Drug Price widget</li>
+  		<li>Yelp - Provider Reviews</li>
+  		<li>CMS Blue Button - Medicare Claims Data</li>
+  		<li>PokitDoc - Out-of-Pocket Drug Price</li>
+  		<li>First Data Bank - Drug Info</li>
+  	</ul>
+  <li>Security</li>
+  	<ul>
+  		<li>OAuth 2.0</li>
+  	</ul>
+</ul> 
+
+<h3>git</h3>
+<%=image_tag("iTerm2 git status 2018-10-16.png")%>
+
+
+</div>

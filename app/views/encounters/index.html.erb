@@ -2,7 +2,7 @@
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
           <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Worklist", root_path %></li>
+          <li><%= link_to "Worklist", worklist_path %></li>
           
         </ul>
     </header>
@@ -11,11 +11,7 @@
 <div class='content'>
 <h1>Patient Worklist</h1>
 
-<h2>Total # of Encounters: <%= Encounter.count %> </h2> 
-<h3>Avg Cost per Encounter: $
-	<%= (Encounter.sum(:total_cost) / Encounter.count).round(0)  %> </h3>
-<h3>Potential ACO Savings: $
-	<%= (Encounter.sum(:total_cost) / Encounter.count).round(0)*9  %> </h3>
+
 
 <table id="encounters">
 	<tbody>
@@ -31,7 +27,10 @@
 		<% @encounters.each do |encounter| %>
 		<tr>
 			<td><%= encounter.patient_account_number %></td>
-			<td><%= encounter.discharge_date %></td>
+			<td><%= if encounter.discharge_date.nil? 
+				"Missing?" 
+				else encounter.discharge_date 
+					end %></td>
 			<td><%= encounter.zip_code %></td>
 			<td><%= encounter.latitude %></td>
 			<td><%= encounter.longitude %></td>
@@ -48,5 +47,43 @@
 <b>Disclaimer:</b> Fake Data
 <br>
 <%= link_to image_tag("CH_REV_red_logo-01-small.jpg"), "https://www.changehealthcare.com/" %>
+
+
+<button class="collapsible">How to Query the Web App Database...</button>
+<div class="bodycontent">
+  <p></p>
+  	<h3>Controller to View Ruby Code</h3>
+  	<pre>  ..\app\controllers\encounters_controller.rb</pre>
+	<pre>  @encounters = Encounter.limit(10).all.sort_by { |e| e[:patient_age]}</pre>
+
+  	<h3>Total # of Encounters: <%= Encounter.count %> </h3>
+  	<pre>  Encounter.count </pre>
+
+	<h3>Avg Cost per Encounter: $
+		<%= (Encounter.sum(:total_cost) / Encounter.count).round(0)  %> </h3>
+	<pre>  (Encounter.sum(:total_cost) / Encounter.count).round(0) </pre>
+	
+	<h3>Potential ACO Savings: $
+		<%= (Encounter.sum(:total_cost) / Encounter.count).round(0)*9  %> </h3>
+	<pre>  (Encounter.sum(:total_cost) / Encounter.count).round(0)*9 </pre>
+</div>
+
 </div>
 </body>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     end
     
     def contact
-    	@email = "myemail@changehealth.com"
+    	@email = "myemail@changehealthcare.com"
     end
 	
 	include BetterdoctorHelper

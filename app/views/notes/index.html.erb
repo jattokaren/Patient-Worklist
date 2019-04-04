@@ -2,7 +2,7 @@
         <ul>
           <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
           <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Worklist", root_path %></li>
+          <li><%= link_to "Worklist", worklist_path %></li>
   		  
           <li><%= link_to "Create Note", new_encounter_note_path(@encounter_id) %></li>
         </ul>
@@ -50,9 +50,32 @@
 <%= link_to 'Go Back to Patient Encounter List', encounters_path, method: :get %>
 <br>
 <br>
-
 <br>
-<h3>BetterDoctor API</h3>
+<h4>Top 5 Local Doctors</h4>
+<table>
+    <tbody>
+        <thead>
+            <th>NPI</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Picture</th>
+        </thead>
+	<% @doctors['data'].each do |data| %>
+		<tr>
+			<td><%= data['npi'] %></td>
+	 		<td><%= data['profile']['last_name']%>, 
+	 			<%= data['profile']['first_name']%></td>
+	 		<td><%= data['profile']['title']%></td> 
+	    	<td><img src=<%= data['profile']['image_url']%>></img></td>
+		</tr>
+	<% end %>
+		</tbody>
+</table>
+
+<button class="collapsible">BetterDoctor API</button>
+<div class="bodycontent">
+  <p></p>
+  API Documentation
 <a href="https://developer.betterdoctor.com/documentation15">BetterDoctor Documentation</a>
 <br>
 
@@ -75,32 +98,12 @@ Request URL -> Response Body (JSON Parsed)
 <b># of Doctors Found: </b>
 <%= @doctors['meta']['total'] %> 
 <br>
-<br>
-<h4>Top 5 Local Doctors</h4>
-<table>
-    <tbody>
-        <thead>
-            <th>NPI</th>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Picture</th>
-        </thead>
-	<% @doctors['data'].each do |data| %>
-		<tr>
-			<td><%= data['npi'] %></td>
-	 		<td><%= data['profile']['last_name']%>, 
-	 			<%= data['profile']['first_name']%></td>
-	 		<td><%= data['profile']['title']%></td> 
-	    	<td><img src=<%= data['profile']['image_url']%>></img></td>
-		</tr>
-	<% end %>
-		</tbody>
-</table>
-<h4>---Example---</h4>
-<b>Ruby Code to get JSON value(s):</b> 
-<br>
-<br>
-<b>For Doctors</b>
+</div>
+
+<button class="collapsible">Example Ruby Code to get JSON value(s):</button>
+<div class="bodycontent">
+ <p></p>
+ <b>For Doctors</b>
 <UL>
 <LI>@doctors['data'][0]['profile']['last_name'] = 
 <%= @doctors['data'][0]['profile']['last_name'] %>
@@ -111,14 +114,32 @@ Request URL -> Response Body (JSON Parsed)
 
 <b>For Practices</b>
 <br>
-List all practices for 1st Provider: 
-<br>
-@doctors['data'][0]['practices'].each do |practice| 
-<br> 
+<pre>  List all practices for 1st Provider: </pre>
+<pre>  @doctors['data'][0]['practices'].each do |practice| </pre>
 <UL>
 <% @doctors['data'][0]['practices'].each do |practice| %> 
   <LI>
   practice['name'] = <%= practice['name'] %> 
 <% end %> 
-</UL>
+
 </div>
+
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

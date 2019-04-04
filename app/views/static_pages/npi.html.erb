@@ -1,21 +1,30 @@
+    <header class='clearfix'>
+        <ul>
+          <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "BD API", "https://developer.betterdoctor.com/documentation15" %></li>
+          
+        </ul>
+    </header>
+
+<div class='content'>
 <h1>BetterDoctor NPI Search API Results</h1>
-<a href="https://developer.betterdoctor.com/documentation15">BetterDoctor Documentation</a>
-<br>
-https://developer.betterdoctor.com/documentation15
-<br>
-GET /doctors/npi/{npi} Retrieve a specific doctor description using NPI
+
 <p>NPI = <%= @npi %></p>
+
 <UL>
 <LI>Provider Type = <%= @providerdetails['data']['specialties'][0]['actor']%>
-<LI>Practice Location
+<LI>Practice Location 
 	<UL>
 		<LI>Latitude: <%= @providerdetails['data']['practices'][0]['lat'].round(4)%>
 		<LI>Longitude: <%= @providerdetails['data']['practices'][0]['lon'].round(4)%>
+		<LI>Next Steps: Google Map API iframe
 	</UL>
 </UL>
 
 <h2>JSON Parsed Results</h2>
 <h3>Summary Claim Results for Provider</h3>
+
 <table>
     <tbody>
         <thead>
@@ -40,9 +49,21 @@ GET /doctors/npi/{npi} Retrieve a specific doctor description using NPI
 	<% end %>
 	</tbody>
 </table>
-
-<h2>Claim Field Definitions</h2>
-Claim {
+</div>
+<br>
+<br>
+<button class="collapsible">BetterDoctor Documentation</button>
+<div class="bodycontent">
+	<a href="https://developer.betterdoctor.com/documentation15">BetterDoctor Documentation</a>
+	<br>
+	https://developer.betterdoctor.com/documentation15
+	<br>
+	GET /doctors/npi/{npi} Retrieve a specific doctor description using NPI
+	<p>NPI = <%= @npi %></p>
+</div>
+<button class="collapsible">Claim Field Definitions</button>
+<div class="bodycontent">
+  <p>Claim {
 hcpcs (string, optional),
 hcpcs_description (string, optional): The description of the operation type. ,
 service_cnt (integer, optional): Number of operations performed. ,
@@ -50,8 +71,43 @@ bene_uniq_cnt (integer, optional): Number of unique patients treated. ,
 avg_allowed_amt (number, optional): The contracted amount allowed. ,
 avg_charge_amt (number, optional): The amount billed. ,
 avg_payment_amt (number, optional): The amount paid.
-}
-<br>
+}</p>
+</div>
+<button class="collapsible">JSON Results</button>
+<div class="bodycontent">
+  <p><%= @providerdetails %></p>
+</div>
 
-<h2>JSON Results</h2>
-<%= @providerdetails %>
+<button class="collapsible">not nil? check</button>
+<div class="bodycontent">
+  <p><b>Ruby Code:</b></p>
+  if @providerdetails['data'].nil?
+	"No Data"
+	else "not nil"
+	end
+  <p><b>Ruby Result:</b></p>
+  <%= if @providerdetails['data'].nil?
+	"No Data"
+	else "not nil"
+	end %>
+</div>
+
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
