@@ -2,19 +2,16 @@ require 'betterdoctor_helper'
 require 'json'
 
 class NotesController < ApplicationController
-  # include NotesHelper module here
+  
   include BetterdoctorHelper
   def index
-  	@encounter_id = params[:encounter_id]
+  	p "Index Page"
+    @encounter_id = params[:encounter_id]
     @encounter = Encounter.find(@encounter_id)
     @pan = Encounter.find(@encounter_id).patient_account_number
     @doctors = JSON.parse(BetterdoctorHelper.get_doctors(@encounter))
     @notes = Note.where("encounter_id = ?", params[:encounter_id])
-    #@latitude = 
   end
-
-def about
-end
 
   def show
   	#link_to("Show Note page", encounter_note_path(@encounter_id, note))
