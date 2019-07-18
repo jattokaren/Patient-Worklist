@@ -10,14 +10,12 @@
 
 <div class='content'>
 <h1>Encounter Notes for <%= @encounter.patient_account_number %></h1>
-<h3>Show Notes Page</h3>
 
 <table id="encounters">
 	<tbody>
 		<tr>			
 			<th>Note Content</th>
 			<th>Staff Initials</th>
-			
 			<th>Note ID</th>
 			<th>Internal Patient ID</th>
 			<th>Create Date</th>
@@ -28,13 +26,14 @@
 		<tr>			
 			<td><%= note.content %></td>
 			<td><%= note.staff_initials %></td>
-			
 			<td><%= note.id %></td>
 			<td><%= note.encounter_id %></td>
 			<td><%= note.created_at %></td>
 			<td><%= note.updated_at %></td>
-			<td><%= link_to "Edit Note", edit_encounter_note_path(@encounter_id, note)%></td>
-			<td><%= link_to 'Delete Note', encounter_note_path(@encounter_id, note), method: :delete %></td>
+			<td><%= link_to "Edit Note", 
+				edit_encounter_note_path(@encounter_id, note)%></td>
+			<td><%= link_to 'Delete Note', 
+				encounter_note_path(@encounter_id, note), method: :delete %></td>
 		</tr>
 		<% end %>
 

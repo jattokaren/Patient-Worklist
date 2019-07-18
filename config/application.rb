@@ -13,7 +13,14 @@ module Patientworklist
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+
+# Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path| #from stackoverflow
+#   config.assets.paths << path
+# end
+
 end
+
+
 
 #NOT WORKING Code
 # config_files = ['secrets.yml']

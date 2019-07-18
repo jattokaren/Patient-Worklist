@@ -1,0 +1,139 @@
+    <header class='clearfix'>
+        <ul>
+          <li><%= link_to image_tag("ch_delta_red_logo_sm.png"), "https://www.changehealthcare.com/" %></li>
+          <li><%= link_to "About", about_path %></li>
+
+          <li><%= link_to "Worklist", root_path %></li>
+          <li><%= link_to "Contact", contact_path%></li>
+        </ul>
+    </header>
+
+<div class='content'>
+<h1>Spotfire Utilization</h1>
+
+<%=image_tag("SpotfireUtilizationConsumer.png", :width => 1000, :crop => "pad")%>
+<br>
+http://expy7.pmhadley.com:8380/spotfire/wp/OpenAnalysis?file=/Logged%20User%20Actions/Spotfire%20Utilization%20v2.0
+
+<h3>Design Training Topics</h3>
+<ul style="list-style-type:none;">
+  <li>Design Iterations</li>
+    <ul>
+      <li>User Feedback</li>
+      <li>Implementations</li>
+      <li>Different LIVE datasets</li>
+    </ul>
+  <li>What are the Key Fields / Attributes?</li>
+  <li>End-User Workflow</li>
+  <li>Update Frequency</li>
+</ul>
+
+<h3>Color & Size Choice</h3>
+<ul style="list-style-type:none;">
+  <li>Machine generated alternative text:</li>
+  <li>Generic Gradient</li>
+  <li>#OD2C6C </li>
+  <li>#73387E </li>
+  <li>#C64C78 </li>
+  <li># ;67966 </li>
+<br>
+  <li>Machine generated alternative text:</li>
+  <li>#73387E </li>
+  <li>#9E58AO </li>
+  <li>Shades </li>
+  <li>#C27AC3 </li>
+  <li>#E79CE8 </li>
+</ul>
+ 
+<h3>End-User Training</h3>
+<ul style="list-style-type:none;">
+  <li>How to unmark</li>
+  <li>Bookmarks</li>
+
+</ul>
+
+
+<h3>Future Enhancements</h3>
+<ul style="list-style-type:none;">
+  <li>IronPython - Click on KPI Metric to change Y-Axis on Trend Bar Charts + Hour&Day?</li>
+  <li>Data Source Template</li>
+  <li>Library Permissions Template</li>
+
+</ul>
+
+
+<h3>Page Design / Layout</h3>
+<ul style="list-style-type:none;">
+  <li>3 Text Area</li>
+  <li>HTML Table, Property Controls, 3 Action Controls, Dynamic Item, Filters</li>
+  <li>KPI Chart, 3 Bar Charts, 2 Cross Tables, Treemap  ……              Heatmap</li>
+  <li>etc</li>
+
+</ul> 
+
+<h3>Visualization Design & Properties</h3>
+<ul style="list-style-type:none;">
+  <li>Marking</li>
+  <li>Tooltips</li>
+  <li>Lines and Curves</li>
+  <li>Show and Hide</li>
+  <li>Custom Expressions</li>
+  <li>Calculated Columns</li>
+  <li>Colors</li>
+  <li>Formatting</li>
+
+</ul> 
+
+
+<h4>Controls</h4>
+<ul style="list-style-type:none;">
+  <li>Contains:</li>
+  <li>HTML Table</li>
+  <li>4 Property Controls</li>
+  <li>3 Input Fields</li>
+  <li>4 Action Controls</li>
+  <li>Reset Page: Button</li>
+  <li>Filter Out: Icon</li>
+  <li>Transparent Background</li>
+  <li>Size: 23, 23</li>
+  <li>Filter To: Icon</li>
+  <li>Transparent Background</li>
+  <li>Size: 23, 23</li>
+  <li>Info Page: Icon</li>
+  <li>Transparent Background</li>
+  <li>Size: 23, 23</li>
+  <li>Actions</li>
+
+</ul> 
+
+
+<h4>Key Filters</h4>
+<ul style="list-style-type:none;">
+  <li>Contains:</li>
+  <li>Text</li>
+  <li>6 Filters</li>
+  <li>4 List Box</li>
+  <li>1 Range</li>
+  <li>1 Checkbox</li>
+
+</ul> 
+
+ 
+<h3>Custom Expressions</h3>
+<ul style="list-style-type:none;">
+  <li>BinByDateTime([Logged Date],"Year.Month",1)</li>
+  <br>
+  <li>case </li>
+  <li>when DayOfWeek([Logged Date])=0 then [Logged Date]</li>
+  <li>when DayOfWeek([Logged Date])=1 then DateAdd("day",-1,[Logged Date])</li>
+  <li>when DayOfWeek([Logged Date])=2 then DateAdd("day",-2,[Logged Date])</li>
+  <li>when DayOfWeek([Logged Date])=3 then DateAdd("day",-3,[Logged Date])</li>
+  <li>when DayOfWeek([Logged Date])=4 then DateAdd("day",-4,[Logged Date])</li>
+  <li>when DayOfWeek([Logged Date])=5 then DateAdd("day",-5,[Logged Date]) </li>
+  <br>
+  <li>else DateAdd("day",-6,[Logged Date])</li>
+  <li>end</li>
+</ul> 
+
+<br>
+

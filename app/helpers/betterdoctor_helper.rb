@@ -9,9 +9,9 @@ module BetterdoctorHelper
     #for Dev WORKING        
     #url2 = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=az-phoenix&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca937486')   
     #url1 = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=33.2765%2C%20-112.1872%2C%2010&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca93786')  
-    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=' + latitude +'%2C%20' + longitude + '%2C%2010&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca937ff19656d3030714121b5e38486') 
+    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=' + latitude +'%2C%20' + longitude + '%2C%2010&sort=best-match-desc&skip=0&limit=5&user_key=' + 'dca9486') 
     #for Production WORKING
-    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=' + latitude +'%2C%20' + longitude + '%2C%2010&sort=best-match-desc&skip=0&limit=5&user_key=' + ENV['BD_API'])   
+    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors?location=' + latitude +'%2C%20' + longitude + '%2C%2010&sort=best-match-desc&skip=0&limit=5&user_key=' + ENV['BD_API'])   
 
     req = Net::HTTP::Get.new(url.to_s)
     req['Accept'] = 'application/json'
@@ -28,10 +28,10 @@ module BetterdoctorHelper
     #https://api.betterdoctor.com/2016-03-01/doctors/npi/1710988381?user_key=dca937486
 
     #for Developement
-    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors/npi/' + npi + '?user_key=' + 'dca937ff19656d3030714121b5e38486') 
+    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors/npi/' + npi + '?user_key=' + 'dca9e6') 
 
     #for Production WORKING
-    #url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors/npi/' + npi + '?user_key=' + ENV['BD_API'])   
+    url = URI.parse('https://api.betterdoctor.com/2016-03-01/doctors/npi/' + npi + '?user_key=' + ENV['BD_API'])   
 
     req = Net::HTTP::Get.new(url.to_s)
     req['Accept'] = 'application/json'

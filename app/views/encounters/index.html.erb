@@ -11,8 +11,6 @@
 <div class='content'>
 <h1>Patient Worklist</h1>
 
-
-
 <table id="encounters">
 	<tbody>
 		<tr>
@@ -36,7 +34,8 @@
 			<td><%= encounter.longitude %></td>
 			<td><%= encounter.patient_age %></td>
 			<td><%= (encounter.total_cost).round(2) %></td>
-			<td bgcolor="#F42A4D"><%= link_to 'See Notes', encounter_notes_path(encounter) %></td>
+			<td bgcolor="#F42A4D">
+				<%= link_to 'See Notes', encounter_notes_path(encounter) %></td>
 		</tr>
 		<% end %>
 
